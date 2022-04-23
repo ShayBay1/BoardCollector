@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<h1>Board List</h1>
+
+{% for board in boards %}
+  <div class="card">
+    <div class="card-content">
+      <span class="card-title">{{ board.model }}</span>
+      <p>Brand: {{ board.brand }}</p>
+      <p>Description: {{ board.description }}</p>
+      {% if board.age > 0 %}
+        <p>Age: {{ board.age }}</p>
+      {% else %}
+        <p>Age: coming soon</p>
+      {% endif %}
+    </div>
+  </div>
+{% endfor %}
+
+{% endblock %}
+
