@@ -14,5 +14,9 @@
         <p>Not Yet Released</p>
     {% endif %}
     </div>
+    <div class="card-action">
+        <a href="{% url 'boards_update' board.id %}">Edit</a>
+        <a href="{% url 'boards_delete' board.id %}">Delete</a>
+      </div>
 </div>
 {% endblock %}

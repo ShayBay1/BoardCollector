@@ -17,7 +17,8 @@
           <li><a href="/" class="left brand-logo">&nbsp;&nbsp;BoardCollector</a></li>
         </ul>
         <ul class="right">
-          <li><a href="/about">About</a></li>
+          <li><a href="{% url 'about' %}">About</a></li>
+          <li><a href="{% url 'boards_create' %}">Add A Board</a></li>
           <li><a href="/boards">View All My Boards</a></li>
         </ul>
       </div>
