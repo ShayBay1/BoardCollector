@@ -9,4 +9,6 @@ urlpatterns = [
     path('boards/<int:pk>/update/', views.BoardUpdate.as_view(), name='boards_update'),
     path('boards/<int:pk>/delete/', views.BoardDelete.as_view(), name='boards_delete'),
     path('boards/<int:board_id>/add_tuning/', views.add_tuning, name='add_tuning'),
+    path('boards/<int:board_id>/assoc_binding/<int:binding_id>/', views.assoc_binding, name='assoc_binding'),
+    path('boards/<int:board_id>/add_photo/', views.add_photo, name='add_photo'),
 ]

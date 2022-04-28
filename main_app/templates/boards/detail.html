@@ -46,7 +46,46 @@
         </table>
     </div>
 </div>
-
+<hr>
+<div class="row">
+  <div class="col s6">
+    <h3>{{ board.brand }} {{ board.model }}'s Bindings</h3>
+    {% if board.bindings.count %}
+      {% for binding in board.bindings.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ bindings.color }}">{{ bindings.color }}</span> {{ bindings.model }}
+            </span>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>No Bindings:(</h5>
+    {% endif %}
+  </div>
+  <div class="col s6">
+    <h3>Available Bindings</h3>
+    {% if bindings.count %}
+      {% for binding in binding.all %}
+        <div class="card">
+          <div class="card-content">
+            <span class="card-title">
+              A <span style="color: {{ binding.color }}">{{ binding.color }}</span> {{ binding.model }}
+            </span>
+          </div>
+          <div class="card-action">
+            <form action="{% url 'assoc_binding' board.id binding.id %}" method="post">
+              {% csrf_token %}
+              <button type="submit" class="btn">Add</button>
+            </form>
+          </div>
+        </div>
+      {% endfor %}
+    {% else %}
+      <h5>{{cat.name}} Already Has Available Bindings</h5>
+    {% endif %}
+  </div>
 <script>
     const dateEl = document.getElementById('id_date');
     M.Datepicker.init(dateEl, {
